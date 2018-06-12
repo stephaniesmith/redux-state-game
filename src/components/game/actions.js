@@ -1,5 +1,6 @@
 import {
-  SELECTION
+  SELECTION, 
+  TURN
 } from './reducers';
 
 export const makeSelection = (index, player) => {
@@ -8,5 +9,11 @@ export const makeSelection = (index, player) => {
       type: SELECTION,
       payload: { index: index, player: player }
     });
+
+    dispatch({
+      type: TURN
+    });
   };
+
+
 };

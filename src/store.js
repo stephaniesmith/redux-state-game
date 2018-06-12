@@ -1,9 +1,10 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import { selections } from './components/game/reducers';
+import { selections, turn } from './components/game/reducers';
 
 const rootReducer = combineReducers({
-  selections
+  selections,
+  turn
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

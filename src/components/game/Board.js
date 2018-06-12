@@ -2,14 +2,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Square from './Square';
-import { getBoard } from './reducers';
+import { getBoard, getPlayer } from './reducers';
 import { makeSelection } from './actions';
 import styles from './Board.css';
 
 class Board extends Component {
 
   static propTypes = {
-    // index: PropTypes.number,
     player: PropTypes.string.isRequired,
     board: PropTypes.array.isRequired
   };
@@ -22,7 +21,7 @@ class Board extends Component {
   };
 
   render() {
-    const { player, board } = this.props;
+    const { board } = this.props;
 
     return (
       <div className={styles.board}>
@@ -39,7 +38,8 @@ class Board extends Component {
 
 export default connect(
   (state) => ({
-    board: getBoard(state)
+    board: getBoard(state),
+    player: getPlayer(state)
   }),
   { makeSelection }
 )(Board);
