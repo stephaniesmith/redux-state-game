@@ -32,12 +32,12 @@ export function selections(state = initBoard(), { type, payload }) {
   }
 }
 
-export function turn(state = initPlayer(), { type, payload }) {
+export function turn(state = initPlayer(), { type }) {
+  console.log('state', state);
   switch (type) {
     case TURN: {
       const copy = state;
-      copy === 'X' ? { player: '0' } : { player: 'X' };
-      return copy;
+      return copy === 'X' ? 'O' : 'X';
     }
     default:
       return state;
