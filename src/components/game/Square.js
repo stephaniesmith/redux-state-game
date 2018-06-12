@@ -6,14 +6,15 @@ export default class Square extends Component {
 
   static propTypes = {
     label: PropTypes.string.isRequired,
+    selectSquare: PropTypes.func.isRequired,
+    value: PropTypes.number.isRequired
   };
 
-
   render() {
-    const { label } = this.props;
+    const { label, selectSquare, value } = this.props;
 
     return (
-      <button className={styles.square}>
+      <button className={styles.square} value={value} onClick={selectSquare}>
         {label}
       </button>
     );
