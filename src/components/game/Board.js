@@ -10,7 +10,8 @@ class Board extends Component {
 
   static propTypes = {
     player: PropTypes.string.isRequired,
-    board: PropTypes.array.isRequired
+    board: PropTypes.array.isRequired,
+    makeSelection: PropTypes.func.isRequired
   };
 
   callSquare = event => {

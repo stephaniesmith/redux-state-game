@@ -14,6 +14,4 @@ export const makeSelection = (index, player) => {
       type: TURN
     });
   };
-
-
 };
