@@ -1,6 +1,5 @@
 :local(.square) {
   height: 200px;
-  width: 200px;
-  font-size: 200px;
+  font-size: 10rem;
   vertical-align: top;
 }

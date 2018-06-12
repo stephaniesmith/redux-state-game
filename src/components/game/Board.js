@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Square from './Square';
 import { getBoard } from './reducers';
 import { makeSelection } from './actions';
+import styles from './Board.css';
 
 class Board extends Component {
 
@@ -24,7 +25,7 @@ class Board extends Component {
     const { player, board } = this.props;
 
     return (
-      <div>
+      <div className={styles.board}>
         {board.map((square, index) => <Square
           key={index}
           label={square}
