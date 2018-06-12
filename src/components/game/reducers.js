@@ -10,11 +10,12 @@ export const SELECTION = 'SELECTION';
 
 export const getBoard = state => state.selections;
 
-const initSelections = () => [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
-export function selections(state = initSelections(), { type, payload }) {
+
+const initBoard = () => [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
+export function selections(state = initBoard(), { type, payload }) {
+  console.log('here');
   switch (type) {
     case SELECTION: {
-      console.log(state);
       const copy = [...state];
       copy[payload.index] = payload.player;
       return copy;
