@@ -8,7 +8,6 @@ import { makeSelection } from './actions';
 class Board extends Component {
 
   static propTypes = {
-    // index: PropTypes.number,
     player: PropTypes.string.isRequired,
     board: PropTypes.array.isRequired
   };
@@ -18,12 +17,10 @@ class Board extends Component {
     const { player } = this.props;
     const index = event.target.value;
     this.props.makeSelection(index, player);
-    // return  player === 'X'  ? { player: 'O' } : { player: 'X' };
   };
 
   render() {
-    const { player, board } = this.props;
-    console.log('BOARD!!', board);
+    const { board } = this.props;
 
     return (
       <div>

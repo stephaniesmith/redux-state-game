@@ -14,12 +14,7 @@ export const getPlayer = state => state.turn;
 
 const initBoard = () => [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
 const initPlayer = () => 'X';
-// const initGame = () => {
-//   return {
-//     board: initBoard(),
-//     player: initPlayer()
-//   };
-// };
+
 export function selections(state = initBoard(), { type, payload }) {
   switch (type) {
     case SELECTION: {
@@ -33,7 +28,6 @@ export function selections(state = initBoard(), { type, payload }) {
 }
 
 export function turn(state = initPlayer(), { type }) {
-  console.log('state', state);
   switch (type) {
     case TURN: {
       const copy = state;
