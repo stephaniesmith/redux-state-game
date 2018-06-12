@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 
-class App extends Component {
+export default class Square extends Component {
   render() {
     return (
       <div>
-        Hello World
+        This is a square!
       </div>
     );
   }
 }
-
-export default App;
