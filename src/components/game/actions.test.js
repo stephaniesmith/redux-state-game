@@ -9,7 +9,7 @@ describe('makeSelection action', () => {
     thunk(dispatch, getState);
 
     const { calls } = dispatch.mock;
-    expect(calls.length).toBe(1);
+    expect(calls.length).toBe(2);
 
     expect(calls[0][0]).toEqual({
       type: SELECTION,
