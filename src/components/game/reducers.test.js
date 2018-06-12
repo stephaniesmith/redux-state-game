@@ -5,11 +5,11 @@ import {
 describe('selections reducer', () => {
   it('has empty array for initial state', () => {
     const state = selections(undefined, {});
-    expect(state).toEqual([]);
+    expect(state).toEqual([' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']);
   });
 
   it('records a selection', () => {
-    const state = selections([], { type: SELECTION, payload: { index: 3, player: 'X' } });
-    expect(state).toEqual(['', '', '', 'X']);
+    const state = selections(undefined, { type: SELECTION, payload: { index: 3, player: 'X' } });
+    expect(state).toEqual([' ', ' ', ' ', 'X', ' ', ' ', ' ', ' ', ' ']);
   });
 });

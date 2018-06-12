@@ -8,8 +8,14 @@ export const SELECTION = 'SELECTION';
 //   TIE: 'TIE'
 // };
 
-export function selections(state = [], { type, payload }) {
+const initSelections = () => [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
+export function selections(state = initSelections(), { type, payload }) {
   switch (type) {
+    case SELECTION: {
+      const copy = [...state];
+      copy[payload.index] = payload.player;
+      return copy;
+    }
     default:
       return state;
   }
