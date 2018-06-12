@@ -1,4 +1,5 @@
 export const SELECTION = 'SELECTION';
+export const TURN = 'TURN';
 // export const NEW_ROUND = 'NEW_ROUND';
 
 // export const ROUND_STATE = {
@@ -9,15 +10,33 @@ export const SELECTION = 'SELECTION';
 // };
 
 export const getBoard = state => state.selections;
-
+export const getPlayer = state => state.turn;
 
 const initBoard = () => [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
+const initPlayer = () => 'X';
+// const initGame = () => {
+//   return {
+//     board: initBoard(),
+//     player: initPlayer()
+//   };
+// };
 export function selections(state = initBoard(), { type, payload }) {
-  console.log('here');
   switch (type) {
     case SELECTION: {
       const copy = [...state];
       copy[payload.index] = payload.player;
+      return copy;
+    }
+    default:
+      return state;
+  }
+}
+
+export function turn(state = initPlayer(), { type, payload }) {
+  switch (type) {
+    case TURN: {
+      const copy = state;
+      copy === 'X' ? { player: '0' } : { player: 'X' };
       return copy;
     }
     default:
