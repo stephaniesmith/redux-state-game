@@ -8,10 +8,13 @@ export const SELECTION = 'SELECTION';
 //   TIE: 'TIE'
 // };
 
+export const getBoard = state => state.selections;
+
 const initSelections = () => [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
 export function selections(state = initSelections(), { type, payload }) {
   switch (type) {
     case SELECTION: {
+      console.log(state);
       const copy = [...state];
       copy[payload.index] = payload.player;
       return copy;
