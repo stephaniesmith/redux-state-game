@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Square from './Square';
-import { getBoard } from './reducers';
+import { getBoard, getPlayer } from './reducers';
 import { makeSelection } from './actions';
 
 class Board extends Component {
@@ -18,10 +18,12 @@ class Board extends Component {
     const { player } = this.props;
     const index = event.target.value;
     this.props.makeSelection(index, player);
+    // return  player === 'X'  ? { player: 'O' } : { player: 'X' };
   };
 
   render() {
     const { player, board } = this.props;
+    console.log('BOARD!!', board);
 
     return (
       <div>
@@ -38,7 +40,8 @@ class Board extends Component {
 
 export default connect(
   (state) => ({
-    board: getBoard(state)
+    board: getBoard(state),
+    player: getPlayer(state)
   }),
   { makeSelection }
 )(Board);
