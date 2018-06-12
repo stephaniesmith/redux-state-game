@@ -8,7 +8,6 @@ describe('makeSelection action', () => {
     const getState = () => ({ selections: [' ', ' ', ' ', 'X', ' ', ' ', ' ', ' ', ' '] });
     thunk(dispatch, getState);
 
-
     const { calls } = dispatch.mock;
     expect(calls.length).toBe(1);
 
