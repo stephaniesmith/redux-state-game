@@ -1,5 +1,5 @@
-import { makeSelection } from './actions';
-import { SELECTION, TURN, TALLY_ROUND } from './reducers';
+import { makeSelection, newRound } from './actions';
+import { SELECTION, TURN, TALLY_ROUND, NEW_ROUND } from './reducers';
 
 describe('makeSelection action', () => {
   it('dispatches player choice', () => {
@@ -25,5 +25,9 @@ describe('makeSelection action', () => {
       payload: expect.stringMatching('WIN_X')
     });
 
+  });
+
+  it('dispatches new round', () => {
+    expect(newRound()).toEqual({ type: NEW_ROUND });
   });
 });

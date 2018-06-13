@@ -3,7 +3,8 @@ import {
   TURN,
   getRoundState,
   ROUND_STATE,
-  TALLY_ROUND
+  TALLY_ROUND,
+  NEW_ROUND
 } from './reducers';
 
 export const makeSelection = (index, player) => {
@@ -28,3 +29,5 @@ export const makeSelection = (index, player) => {
     }
   };
 };
+
+export const newRound = () => ({ type: NEW_ROUND });
