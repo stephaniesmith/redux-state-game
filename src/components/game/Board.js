@@ -18,6 +18,7 @@ class Board extends Component {
     event.preventDefault();
     const { player } = this.props;
     const index = event.target.value;
+    event.target.disabled = true;
     this.props.makeSelection(index, player);
   };
 
