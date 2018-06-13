@@ -4,7 +4,8 @@ export const NEW_ROUND = 'NEW_ROUND';
 
 export const ROUND_STATE = {
   PLAYING: 'PLAYING',
-  WIN: 'WIN',
+  WIN_X: 'WIN_X',
+  WIN_O: 'WIN_O',
   TIE: 'TIE'
 };
 export const getBoard = state => state.selections;
@@ -29,20 +30,23 @@ export const getRoundState = state => {
     const xWin = arr.every(square => square === 'X');
     const oWin = arr.every(square => square === 'O');
 
-    if(xWin) return 'X';
-    if(oWin) return 'O';
+    if(xWin) return ROUND_STATE.WIN_X;
+    if(oWin) return ROUND_STATE.WIN_O;
     return false;
   };
   
-  if(win(winOne) || win(winTwo)
-  || win(winThree) || win(winFour)
-  || win(winFive) || win(winSix)
-  || win(winSeven) || win(winEight)) return ROUND_STATE.WIN;
+  if(win(winOne)) return win(winOne);
+  if(win(winTwo)) return win(winTwo);
+  if(win(winThree)) return win(winThree);
+  if(win(winFour)) return win(winFour);
+  if(win(winFive)) return win(winFive);
+  if(win(winSix)) return win(winSix);
+  if(win(winSeven)) return win(winSeven);
+  if(win(winEight)) return win(winEight);
 
   if(board.includes(' ')) return ROUND_STATE.PLAYING;
 
   return ROUND_STATE.TIE;
-
 };
 
 const initBoard = () => [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
