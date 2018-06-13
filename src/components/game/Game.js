@@ -9,7 +9,7 @@ class Game extends Component {
 
   static propTypes = {
     player: PropTypes.string.isRequired,
-    roundState: PropTypes.string.isRequired
+    roundState: PropTypes.string.isRequired,
   };
 
   render() {

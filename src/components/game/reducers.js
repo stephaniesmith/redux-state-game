@@ -9,6 +9,7 @@ export const ROUND_STATE = {
   WIN_O: 'WIN_O',
   TIE: 'TIE'
 };
+// export const getDisable = state => state.disable;
 export const getMatch = state => state.match;
 export const getBoard = state => state.selections;
 export const getPlayer = state => state.turn;
@@ -53,6 +54,7 @@ export const getRoundState = state => {
 
 const initBoard = () => [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
 const initPlayer = () => 'X';
+// const initDisable = () => [false, false, false, false, false, false, false, false, false];
 
 export function selections(state = initBoard(), { type, payload }) {
   switch (type) {
