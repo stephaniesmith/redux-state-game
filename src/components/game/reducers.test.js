@@ -24,19 +24,14 @@ describe('round_state selectors', () => {
     testRoundState([' ', ' ', ' ', 'X', ' ', ' ', ' ', ' ', ' '], ROUND_STATE.PLAYING);
   });
 
-  // it('gets playing round state', () => {
-  //   const state = selections([' ', ' ', ' ', 'X', ' ', ' ', ' ', ' ', ' '], { type: SELECTION, payload: { index: 2, player: 'O' } });
-  //   expect(getRoundState(state)).toEqual(ROUND_STATE.PLAYING);
-  // });
-  // it('gets win round state condition1', () => {
-  //   const state = selections(['X', 'X', 'X', 'X', ' ', ' ', ' ', ' ', ' '], { type: SELECTION, payload: { index: 2, player: 'O' } });
-  //   expect(getRoundState(state)).toEqual(ROUND_STATE.PLAYING);
-  // });
+  it('gets winning round state condition 1', () => {
+    testRoundState(['X', 'X', 'X', 'O', ' ', ' ', ' ', ' ', ' '], ROUND_STATE.WIN);
+  });
 
-  // it('gets win round state condition2', () => {
-  //   const state = selections(['O', 'O', 'X', 'X', 'X', 'X', ' ', ' ', ' '], { type: SELECTION, payload: { index: 2, player: 'O' } });
-  //   expect(getRoundState(state)).toEqual(ROUND_STATE.PLAYING);
+  // it('gets winning round state condition 2', () => {
+  //   testRoundState([' ', 'O', 'O', 'X', ' ', ' ', ' ', ' ', ' '], ROUND_STATE.PLAYING);
   // });
+  
 
 
 });
