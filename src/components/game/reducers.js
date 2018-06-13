@@ -9,6 +9,7 @@ export const ROUND_STATE = {
   WIN_O: 'WIN_O',
   TIE: 'TIE'
 };
+export const getMatch = state => state.match;
 export const getBoard = state => state.selections;
 export const getPlayer = state => state.turn;
 export const getRoundState = state => {
@@ -92,5 +93,4 @@ export function match(state = initMatch(), { type, payload }) {
     default:
       return state;
   }
-
 }

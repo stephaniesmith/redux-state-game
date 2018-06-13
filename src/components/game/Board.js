@@ -22,16 +22,19 @@ class Board extends Component {
   };
 
   render() {
-    const { board } = this.props;
+    const { board, player } = this.props;
 
     return (
-      <div className={styles.board}>
-        {board.map((square, index) => <Square
-          key={index}
-          label={square}
-          selectSquare={this.callSquare}
-          value={index}
-        />)}
+      <div>
+        <h2>{`It's Player ${player}'s turn!`}</h2>
+        <div className={styles.board}>
+          {board.map((square, index) => <Square
+            key={index}
+            label={square}
+            selectSquare={this.callSquare}
+            value={index}
+          />)}
+        </div>
       </div>
     );
   }
