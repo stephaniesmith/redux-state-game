@@ -7,11 +7,11 @@ export const ROUND_STATE = {
   WIN: 'WIN',
   TIE: 'TIE'
 };
-
 export const getBoard = state => state.selections;
 export const getPlayer = state => state.turn;
 export const getRoundState = state => {
-  const board = getBoard(state);
+  
+  const board = !state.selections ? state : getBoard(state);
 
   const getWins = (numOne, numTwo, numThree) => board.filter(square => square.index === numOne || square.index === numTwo || square.index === numThree);
 
@@ -41,7 +41,7 @@ export const getRoundState = state => {
   return ROUND_STATE.TIE;
 };
 
-const initBoard = () => ['0', '1', '2', '3', '4', '5', '6', '7', '8'];
+const initBoard = () => [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
 const initPlayer = () => 'X';
 
 export function selections(state = initBoard(), { type, payload }) {
