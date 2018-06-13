@@ -1,5 +1,5 @@
 import {
-  selections, SELECTION, getRoundState, ROUND_STATE, match, initMatch, TALLY_ROUND
+  selections, SELECTION, getRoundState, ROUND_STATE, match, initMatch, TALLY_ROUND, NEW_ROUND
 } from './reducers';
 
 describe('selections reducer', () => {
@@ -11,6 +11,11 @@ describe('selections reducer', () => {
   it('records a selection', () => {
     const state = selections(undefined, { type: SELECTION, payload: { index: 3, player: 'X' } });
     expect(state).toEqual([' ', ' ', ' ', 'X', ' ', ' ', ' ', ' ', ' ']);
+  });
+
+  it('resets to empty array on new round', () => {
+    const state = selections(['X', 'X', 'X', ' ', ' ', ' ', ' ', ' ', ' '], { type: NEW_ROUND });
+    expect(state).toEqual([' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']);
   });
 });
 

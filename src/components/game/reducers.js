@@ -61,6 +61,9 @@ export function selections(state = initBoard(), { type, payload }) {
       copy[payload.index] = payload.player;
       return copy;
     }
+    case NEW_ROUND: {
+      return initBoard();
+    }
     default:
       return state;
   }
