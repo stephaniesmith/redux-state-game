@@ -14,7 +14,7 @@ export default class Square extends Component {
     const { label, selectSquare, value } = this.props;
 
     return (
-      <button className={styles.square} value={value} onClick={selectSquare} disabled={false}>
+      <button className={styles.square} value={value} onClick={selectSquare} disabled={label !== ' '}>
         {label}
       </button>
     );
