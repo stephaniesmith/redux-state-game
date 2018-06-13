@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { newRound } from './actions';
 import { getMatch, getRoundState, ROUND_STATE } from './reducers';
 
 const { PLAYING, TIE, WIN_O, WIN_X } = ROUND_STATE;
@@ -16,11 +17,12 @@ class Result extends Component {
 
   static propTypes = {
     roundState: PropTypes.string.isRequired,
-    match: PropTypes.object.isRequired
+    match: PropTypes.object.isRequired,
+    newRound: PropTypes.func.isRequired
   };
 
   render() {
-    const { roundState, match } = this.props;
+    const { roundState, match, newRound } = this.props;
 
     return (
       <div>
@@ -31,7 +33,7 @@ class Result extends Component {
         </p>
         <p>{message[roundState]}</p>
         { roundState === PLAYING ||
-          <button /*onClick={newRound}*/>Play Again</button>
+          <button onClick={newRound}>Play Again</button>
         }
       </div>
     );
@@ -42,5 +44,6 @@ export default connect(
   state => ({
     roundState: getRoundState(state),
     match: getMatch(state)
-  })
+  }),
+  { newRound }
 )(Result);
