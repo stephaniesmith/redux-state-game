@@ -1,6 +1,7 @@
 export const SELECTION = 'SELECTION';
 export const TURN = 'TURN';
 export const NEW_ROUND = 'NEW_ROUND';
+export const TALLY_ROUND = 'TALLY_ROUND';
 
 export const ROUND_STATE = {
   PLAYING: 'PLAYING',
@@ -73,4 +74,23 @@ export function turn(state = initPlayer(), { type }) {
     default:
       return state;
   }
+}
+
+export const initMatch = () => ({
+  [ROUND_STATE.WIN_X]: 0,
+  [ROUND_STATE.WIN_O]: 0,
+  [ROUND_STATE.TIE]: 0
+});
+
+export function match(state = initMatch(), { type, payload }) {
+  switch (type) {
+    case TALLY_ROUND:
+      return {
+        ...state,
+        [payload]: state[payload] + 1
+      };
+    default:
+      return state;
+  }
+
 }

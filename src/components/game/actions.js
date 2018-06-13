@@ -1,10 +1,13 @@
 import {
   SELECTION, 
-  TURN
+  TURN,
+  getRoundState,
+  ROUND_STATE,
+  TALLY_ROUND
 } from './reducers';
 
 export const makeSelection = (index, player) => {
-  return (dispatch) => {
+  return (dispatch, getState) => {
     dispatch({
       type: SELECTION,
       payload: { index: index, player: player }
@@ -13,5 +16,15 @@ export const makeSelection = (index, player) => {
     dispatch({
       type: TURN
     });
+
+    const state = getState();
+    const roundState = getRoundState(state);
+
+    if(roundState !== ROUND_STATE.PLAYING) {
+      dispatch({
+        type: TALLY_ROUND,
+        payload: roundState
+      });
+    }
   };
 };

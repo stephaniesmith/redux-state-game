@@ -1,5 +1,5 @@
 import {
-  selections, SELECTION, getRoundState, ROUND_STATE
+  selections, SELECTION, getRoundState, ROUND_STATE, match, initMatch, TALLY_ROUND
 } from './reducers';
 
 describe('selections reducer', () => {
@@ -62,4 +62,44 @@ describe('round_state selectors', () => {
   });
 
 
+});
+
+describe('match', () => {
+  it('initializes to zero count stats', () => {
+    const state = match(undefined, {});
+    expect(state).toEqual(initMatch());
+  });
+
+  it('Increments when O wins', () => {
+    const state = match(initMatch(), {
+      type: TALLY_ROUND,
+      payload: ROUND_STATE.WIN_O
+    });
+    const expected = initMatch();
+    expected[ROUND_STATE.WIN_O] = 1;
+
+    expect(state).toEqual(expected);
+  });
+
+  it('Increments when X wins', () => {
+    const state = match(initMatch(), {
+      type: TALLY_ROUND,
+      payload: ROUND_STATE.WIN_X
+    });
+    const expected = initMatch();
+    expected[ROUND_STATE.WIN_X] = 1;
+
+    expect(state).toEqual(expected);
+  });
+
+  it('Increments when tie', () => {
+    const state = match(initMatch(), {
+      type: TALLY_ROUND,
+      payload: ROUND_STATE.TIE
+    });
+    const expected = initMatch();
+    expected[ROUND_STATE.TIE] = 1;
+
+    expect(state).toEqual(expected);
+  });
 });
